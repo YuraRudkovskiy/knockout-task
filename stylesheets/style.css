@@ -1,0 +1,59 @@
+article{
+	width: 923px;
+}
+article > div{
+    float: left;
+}
+.left-side{
+	width: 60%;
+}
+.left-side p {
+	margin: 0;
+	width: 475px;
+	display: inline-block;
+}
+.left-side li{
+	margin: 26px 0;
+	padding-right: 14px;
+}
+.left-side input{
+	float: right;
+}
+.right-side{
+	width: 39%;
+	border-left: 1px solid grey;
+	padding-left: 35px;
+	box-sizing: border-box;
+}
+.right-side dd input{
+	width: 290px;
+}
+textarea{
+	width: 290px;
+	height: 95px;
+}
+.popup{
+	width: 500px;
+	border: 2px solid grey;
+	border-radius: 10px;
+	box-sizing: border-box;
+	padding: 20px;
+	position: absolute;
+	top: 123px;
+	background-color: white;
+	box-shadow: -1px 3px 15px 0px black;
+	left: 240px;
+	-webkit-transform: translate3d(-1000px, 0, 0);
+}
+.denotation{
+	color: #d14040;
+}
+.popup button{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+.popup.activate{
+	 -webkit-transform: translate3d(0, 0, 0); 
+	-webkit-transition: -webkit-transform 0.5s linear;
+}

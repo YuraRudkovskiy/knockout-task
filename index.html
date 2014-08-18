@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+	<article>
+		<h1 data-bind="text: h1_1"></h1>
+		<div class="left-side">
+			<h2 data-bind="text: h2_1"></h2>
+			<ol data-bind="foreach: files">
+				<li>
+					<p data-bind="text: literature"></p>
+					<input type="checkbox" name="literature" data-bind="checked: isChecked, click: actChecked">
+				</li>
+			</ol>
+		</div>
+		<div class="right-side">
+			<h2 data-bind="text: h2_2"></h2>
+			<form action="#" method="post" data-bind="submit: sendMessage">
+				<dl>
+					<dt data-bind="text: dt_1"></dt>
+					<dd><input type="email" data-bind="value: email"></dd>
+					<dt data-bind="text: dt_2"></dt>
+					<dd><input type="text" data-bind="value: text"></dd>
+					<dt data-bind="text: dt_3"></dt>
+					<dd><textarea data-bind="value: textarea"></textarea></dd>
+					<dt data-bind="text: dt_4"></dt>
+					<dd data-bind="foreach: places">
+						<p class="denotation" data-bind='text: literature'></p>
+					</dd>
+				</dl>
+			<input type="submit">
+			</form>			
+		</div>
+		<div class="popup" data-bind="css: activate">
+			<dl>
+				<dt data-bind="text: dt_1"></dt>
+				<dd class="denotation" data-bind="text: email"></dd>
+				<dt data-bind="text: dt_2"></dt>
+				<dd class="denotation" data-bind="text: text"></dd>
+				<dt data-bind="text: dt_3"></dt>
+				<dd class="denotation" data-bind="text: textarea"></dd>
+				<dt data-bind="text: dt_4"></dt>
+				<dd data-bind="foreach: places">
+					<p class="denotation" data-bind='text: literature'></p>
+				</dd>
+			</dl>
+			<button data-bind="click: closePopup, text: button_1"></button>
+		</div>
+	</article>
+	<script src="scripts/knockout-3.1.0.js"></script>
+	<script src="scripts/demonstration.js"></script>
+</body>
+</html>
