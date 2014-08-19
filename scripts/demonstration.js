@@ -3,10 +3,6 @@
 
 	var files = ko.observableArray(),
    		places = ko.observableArray(),
-   		activate = ko.observable(),
-   		email = ko.observable(),
-   		text = ko.observable(),
-   		textarea = ko.observable(),
 		availableLiterature = [
 			{ literatureTitle: "О компании QAP INT", link:"" },
 			{ literatureTitle: "Преимущества использования CLM-инструмента для Вашего бизнеса", link:"" },
@@ -43,14 +39,14 @@
 	})());
 
 	ko.applyBindings({
-		activate : activate,
-		sendMessage : sendMessage,
-		closePopup : closePopup,	
 		files : files,
 		places : places,
-		email : email,
-   		text : text,
-   		textarea : textarea,
+		sendMessage : sendMessage,
+		closePopup : closePopup,
+		activate : ko.observable(),
+		email : ko.observable(),
+   		text : ko.observable(),
+   		textarea : ko.observable(),
    		h1_1 : "Легкое использование существующих электронных документов (инструкций)",
    		h2_1 : "Список литературы:",
    		h2_2 : "Отправка письма",
