@@ -1,59 +1,48 @@
 (function(){
 	"use strict"
 
-	var availableLiterature, FileReservation, app,
-		files = ko.observableArray(),
+	var files = ko.observableArray(),
    		places = ko.observableArray(),
    		activate = ko.observable(),
    		email = ko.observable(),
    		text = ko.observable(),
-   		textarea = ko.observable();
+   		textarea = ko.observable(),
+		availableLiterature = [
+			{ literatureTitle: "О компании QAP INT", link:"" },
+			{ literatureTitle: "Преимущества использования CLM-инструмента для Вашего бизнеса", link:"" },
+			{ literatureTitle: "Перспективы сотрудничества с QAP INT", link:"" },
+			{ literatureTitle: "Описание решения для разработки HTML5-презентаций", link:"" },
+			{ literatureTitle: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский)", link:"" },
+			{ literatureTitle: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)", link:"" }
+   		];
 
-
-   	availableLiterature = [
-		{ literatureTitle: "О компании QAP INT", link:"" },
-		{ literatureTitle: "Преимущества использования CLM-инструмента для Вашего бизнеса", link:"" },
-		{ literatureTitle: "Перспективы сотрудничества с QAP INT", link:"" },
-		{ literatureTitle: "Описание решения для разработки HTML5-презентаций", link:"" },
-		{ literatureTitle: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский)", link:"" },
-		{ literatureTitle: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)", link:"" }
-   	];
-
-
-   	FileReservation = {
-		actChecked : function(){
-			this.isChecked ? places.push(this) : places.remove(this);
-			return true;
-		}
+	function actChecked(){
+		this.isChecked ? places.push(this) : places.remove(this);
+		return true;
 	}
 
+	function sendMessage(){
+		this.activate('activate');
+	}
+
+	function closePopup(){
+		this.activate('');
+	}
 
 	files = ko.observableArray((function(){
 		var notes = [];
 		availableLiterature.forEach(function(literature, index){
-			var FileReserv = Object.create(FileReservation);
-			FileReserv.index = index;
-			FileReserv.isChecked = false;
-			FileReserv.literature = literature.literatureTitle;
-			notes.push(FileReserv);
+			notes.push({
+				index : index,
+				isChecked : false,
+				literature : literature.literatureTitle,
+				actChecked : actChecked
+			});
 		});
 		return notes;
 	})());
 
-
-	function sendMessage(){
-		openPopup();
-	}
-
-	function openPopup(){
-		activate('activate');
-	}
-
-	function closePopup(){
-		activate('');
-	}
-
-	app = {
+	ko.applyBindings({
 		activate : activate,
 		sendMessage : sendMessage,
 		closePopup : closePopup,	
@@ -70,8 +59,6 @@
    		dt_3 : "Текст сообщения:",
    		dt_4 : "Прикрепленные файлы:",
    		button_1: "Close"
-	}
-
-	ko.applyBindings(app);
+	});
 
 })();
