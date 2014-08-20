@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>knockout-task</title>
 	<link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
@@ -12,8 +12,9 @@
 			<h2 data-bind="text: h2_1"></h2>
 			<ol data-bind="foreach: files">
 				<li>
+					<img data-bind="attr: {src: src}" alt="">
 					<p data-bind="text: literature"></p>
-					<input type="checkbox" name="literature" data-bind="checked: isChecked, click: actChecked">
+					<input type="checkbox" data-bind="checked: isChecked, click: actChecked">
 				</li>
 			</ol>
 		</div>

@@ -4,12 +4,12 @@
 	var files = ko.observableArray(),
    		places = ko.observableArray(),
 		availableLiterature = [
-			{ literatureTitle: "О компании QAP INT", link:"" },
-			{ literatureTitle: "Преимущества использования CLM-инструмента для Вашего бизнеса", link:"" },
-			{ literatureTitle: "Перспективы сотрудничества с QAP INT", link:"" },
-			{ literatureTitle: "Описание решения для разработки HTML5-презентаций", link:"" },
-			{ literatureTitle: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский)", link:"" },
-			{ literatureTitle: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)", link:"" }
+			{ title: "О компании QAP INT", link:"", src:"assets/images/pdf-icon.gif" },
+			{ title: "Преимущества использования CLM-инструмента для Вашего бизнеса", link:"", src:"assets/images/pdf-icon.gif"},
+			{ title: "Перспективы сотрудничества с QAP INT", link:"", src:"assets/images/pdf-icon.gif"},
+			{ title: "Описание решения для разработки HTML5-презентаций", link:"", src:"assets/images/pdf-icon.gif"},
+			{ title: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский)", link:"", src:"assets/images/pdf-icon.gif"},
+			{ title: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)", link:"", src:"assets/images/pdf-icon.gif"}
    		];
 
 	function actChecked(){
@@ -31,7 +31,8 @@
 			notes.push({
 				index : index,
 				isChecked : false,
-				literature : literature.literatureTitle,
+				literature : literature.title,
+				src : literature.src,
 				actChecked : actChecked
 			});
 		});

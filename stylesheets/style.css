@@ -1,8 +1,25 @@
 article{
 	width: 923px;
+	margin: 0 auto;
 }
 article > div{
     float: left;
+}
+img {
+	width: 25px;
+	height: auto;
+	position: absolute;
+	right: 105%;
+	top: 50%;
+	-webkit-transform: translate3d(0, -50%, 0);
+}
+li{
+	margin: 26px 0;
+	padding-right: 14px;
+	position: relative;
+}
+dd{
+	position: relative;
 }
 .left-side{
 	width: 60%;
@@ -12,10 +29,7 @@ article > div{
 	width: 475px;
 	display: inline-block;
 }
-.left-side li{
-	margin: 26px 0;
-	padding-right: 14px;
-}
+
 .left-side input{
 	float: right;
 }
@@ -42,8 +56,9 @@ textarea{
 	top: 123px;
 	background-color: white;
 	box-shadow: -1px 3px 15px 0px black;
-	left: 240px;
-	-webkit-transform: translate3d(-1000px, 0, 0);
+	left: 50%;
+	-webkit-transform: translate3d(-50%,0,0);
+	display: none;
 }
 .denotation{
 	color: #d14040;
@@ -54,6 +69,7 @@ textarea{
 	bottom: 10px;
 }
 .popup.activate{
-	 -webkit-transform: translate3d(0, 0, 0); 
-	-webkit-transition: -webkit-transform 0.5s linear;
+    display: block;
+ 
+	
 }
