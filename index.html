@@ -10,13 +10,14 @@
 		<h1 data-bind="text: h1_1"></h1>
 		<div class="left-side">
 			<h2 data-bind="text: h2_1"></h2>
-			<ol data-bind="foreach: files">
+			<ul data-bind="foreach: files">
 				<li>
 					<img data-bind="attr: {src: src}" alt="">
-					<p data-bind="text: literature"></p>
+					<p data-bind="text: index"></p>
+					<p data-bind="text: title"></p>
 					<input type="checkbox" data-bind="checked: isChecked, click: actChecked">
 				</li>
-			</ol>
+			</ul>
 		</div>
 		<div class="right-side">
 			<h2 data-bind="text: h2_2"></h2>
@@ -30,7 +31,7 @@
 					<dd><textarea data-bind="value: textarea"></textarea></dd>
 					<dt data-bind="text: dt_4"></dt>
 					<dd data-bind="foreach: places">
-						<p class="denotation" data-bind='text: literature'></p>
+						<p class="denotation" data-bind='text: title'></p>
 					</dd>
 				</dl>
 			<input type="submit">
@@ -46,7 +47,7 @@
 				<dd class="denotation" data-bind="text: textarea"></dd>
 				<dt data-bind="text: dt_4"></dt>
 				<dd data-bind="foreach: places">
-					<p class="denotation" data-bind='text: literature'></p>
+					<p class="denotation" data-bind='text: title'></p>
 				</dd>
 			</dl>
 			<button data-bind="click: closePopup, text: button_1"></button>

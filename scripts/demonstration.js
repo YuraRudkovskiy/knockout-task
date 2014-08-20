@@ -1,21 +1,27 @@
 (function(){
 	"use strict"
 
-	var files = ko.observableArray(),
-   		places = ko.observableArray(),
+	var files, places = ko.observableArray(),
 		availableLiterature = [
-			{ title: "О компании QAP INT", link:"", src:"assets/images/pdf-icon.gif" },
-			{ title: "Преимущества использования CLM-инструмента для Вашего бизнеса", link:"", src:"assets/images/pdf-icon.gif"},
-			{ title: "Перспективы сотрудничества с QAP INT", link:"", src:"assets/images/pdf-icon.gif"},
-			{ title: "Описание решения для разработки HTML5-презентаций", link:"", src:"assets/images/pdf-icon.gif"},
-			{ title: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский)", link:"", src:"assets/images/pdf-icon.gif"},
-			{ title: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)", link:"", src:"assets/images/pdf-icon.gif"}
+			{index : 1, title: "О компании QAP INT", link:"", src:"assets/images/pdf-icon.gif" },
+			{index : 2, title: "Преимущества использования CLM-инструмента для Вашего бизнеса", link:"", src:"assets/images/pdf-icon.gif"},
+			{index : 3, title: "Перспективы сотрудничества с QAP INT", link:"", src:"assets/images/pdf-icon.gif"},
+			{index : 4, title: "Описание решения для разработки HTML5-презентаций", link:"", src:"assets/images/pdf-icon.gif"},
+			{index : 5, title: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский)", link:"", src:"assets/images/pdf-icon.gif"},
+			{index : 6, title: "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)", link:"", src:"assets/images/pdf-icon.gif"}
    		];
 
-	function actChecked(){
+   	function actChecked(){
 		this.isChecked ? places.push(this) : places.remove(this);
 		return true;
 	}
+
+   	availableLiterature.forEach(function(literature){
+		literature.actChecked = actChecked;
+		literature.isChecked = false;
+	});
+
+   	files = ko.observableArray(availableLiterature);
 
 	function sendMessage(){
 		this.activate('activate');
@@ -24,20 +30,6 @@
 	function closePopup(){
 		this.activate('');
 	}
-
-	files = ko.observableArray((function(){
-		var notes = [];
-		availableLiterature.forEach(function(literature, index){
-			notes.push({
-				index : index,
-				isChecked : false,
-				literature : literature.title,
-				src : literature.src,
-				actChecked : actChecked
-			});
-		});
-		return notes;
-	})());
 
 	ko.applyBindings({
 		files : files,
